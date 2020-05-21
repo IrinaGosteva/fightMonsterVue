@@ -49,10 +49,10 @@
         <h1 v-else-if="youWon == false">You loose(((</h1>
         <ul>
           <li
-            v-for="(totalValue, i) in totalValues"
+            v-for="(totalValue) in totalValues"
             :key="totalValue"
           >
-            {{ i }}: {{ totalValue }}
+             {{ totalValue }}
           </li>
         </ul>
       </div>
@@ -70,7 +70,8 @@ export default {
     monsterHealth: 100,
     yourHealth: 100,
     totalValues: [],
-    youWon: "start"
+    youWon: "start",
+    counter: 0
   }),
   watch: {
     monsterHealth: function() {
@@ -93,6 +94,7 @@ export default {
       this.monsterHealth = 100;
       this.totalValues = [];
       this.youWon = "start";
+      this.counter=0;
     },
     attackAction: function() {
       this.yourHealth = this.yourHealth - Math.random().toFixed(1) * 5;
